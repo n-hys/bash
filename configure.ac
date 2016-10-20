@@ -65,6 +65,7 @@ dnl look in the NOTES file for more
 case "${host_cpu}-${host_os}" in
 # mostly obsolete platforms
 alpha*-*)	opt_bash_malloc=no ;;	# alpha running osf/1 or linux
+aarch64*-*)	opt_bash_malloc=no ;;	#
 *[[Cc]]ray*-*)	opt_bash_malloc=no ;;	# Crays
 *-osf1*)	opt_bash_malloc=no ;;	# other osf/1 machines
 *-dgux*)	opt_bash_malloc=no ;;	# DG/UX machines
@@ -449,6 +450,14 @@ if test "x$cross_compiling" = "xyes"; then
 	;;
     i[[3456]]86-*-beos*)
 	cross_cache=${srcdir}/cross-build/x86-beos.cache
+	;;
+    alpha*-solaris*)
+	SIGNAMES_H=${srcdir}/cross-build/solaris_sig.h
+	cross_cache=${srcdir}/cross-build/solaris.cache
+	;;
+    aarch64*-solaris*)
+	SIGNAMES_H=${srcdir}/cross-build/solaris_sig.h
+	cross_cache=${srcdir}/cross-build/solaris.cache
 	;;
     *-qnx*)
 	cross_cache=${srcdir}/cross-build/qnx.cache
